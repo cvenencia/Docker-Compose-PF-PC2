@@ -1,0 +1,43 @@
+version: '3'
+
+services:
+    jupyter:
+        build: ./JupyterNotebook
+        volumes:
+            -   type: bind
+                source: ./Datos
+                target: /Datos
+        ports:
+            - 8888:8888
+        command: bash -c "
+            cd /Datos/NotebooksJupyter &&
+            jupyter notebook
+            "
+        depends_on:
+            - postgres
+        
+    dash:
+        build: ./Dash
+        volumes:
+            -   type: bind
+                source: ./Datos
+                target: /Datos
+        ports: 
+            - 8050:8050
+        command: bash -c "
+            python /Datos/src_Dash/app.py
+            "
+        depends_on:
+            - postgres
+    
+    postgres:
+        build: ./PostgreSQL
+        volumes:
+            -   type: bind
+                source: ./Datos
+                target: /Datos
+        environment:
+            POSTGRES_PASSWORD: 12345
+            POSTGRES_DB: covid
+        ports:
+            - 8080:5432
