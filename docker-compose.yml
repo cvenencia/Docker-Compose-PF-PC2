@@ -1,4 +1,4 @@
-version: '3.2'
+version: '3.9'
 
 services:
     jupyter:
@@ -9,7 +9,8 @@ services:
                 target: /Datos
         ports:
             - 8888:8888
-
+        command: bash -c "jupyter notebook &\
+        cd /Datos/NotebooksJupyter"
         depends_on:
             - postgres
         
