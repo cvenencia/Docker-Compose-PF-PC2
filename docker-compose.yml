@@ -4,7 +4,7 @@ services:
     jupyter:
         build: ./JupyterNotebook
         volumes:
-            -   type: bind
+            -   type: "bind"
                 source: ./Datos
                 target: /Datos
         ports:
@@ -18,7 +18,7 @@ services:
     dash:
         build: ./Dash
         volumes:
-            -   type: bind
+            -   type: "bind"
                 source: ./Datos
                 target: /Datos
         ports: 
@@ -30,7 +30,7 @@ services:
     postgres:
         build: ./PostgreSQL
         volumes:
-            -   type: bind
+            -   type: "bind"
                 source: ./Datos
                 target: /Datos
         environment:
