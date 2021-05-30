@@ -9,8 +9,7 @@ services:
                 target: /Datos
         ports:
             - 8888:8888
-        command: "cd /Datos/NotebooksJupyter &&\
-            jupyter notebook"
+
         depends_on:
             - postgres
         
