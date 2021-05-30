@@ -9,8 +9,7 @@ services:
                 target: /Datos
         ports:
             - 8888:8888
-        command: bash -c "\
-            cd /Datos/NotebooksJupyter &&\
+        command: "cd /Datos/NotebooksJupyter &&\
             jupyter notebook"
         depends_on:
             - postgres
@@ -36,5 +35,3 @@ services:
         environment:
             POSTGRES_PASSWORD: 12345
             POSTGRES_DB: covid
-        ports:
-            - 8080:5432
