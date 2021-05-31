@@ -3,12 +3,14 @@
 **Enunciado:** https://docs.google.com/document/d/18E5iOsmqbjvs3pNJd8ltrJbR2tu3F7dRsftpKNroIrw/edit?pli=1
 
 **Descripción:**
-En esta ocasión se decidió tomar un dataset acorde a la temática actual: covid-19, para esto, se usó el dataset proveniente del Instituto Nacional de Salud (datos oficiales), haciendo posteriormente una conversión para ingresarlos dentro de la base de datos de Postgres y finalmente, hacer las respectivas visualizaciones por medio de Python y Python con Dash.
+Se decidió tomar un dataset acorde a la temática actual: covid-19. Para esto, se usó el dataset proveniente del Instituto Nacional de Salud (datos oficiales), haciendo posteriormente una conversión para ingresarlos dentro de la base de datos de Postgres y finalmente, hacer las respectivas visualizaciones por medio de Jupyter Notebooks y Python con Dash.
 
 **Contenedores:**
-1. Contenedor con [Jupyter-Notebookr]() para mostrar las 3 visualizaciones, así mismo se hace conexión con la base de datos en el contenedor con la imagen de Postgres.
-2. Contenedor con [Postgres](), así como el enlace con base de datos de covid-19, dividida en 5 partes por restricciones de github (scriptCovid1-5.sql). Estos datos fueron obtenidos de la página oficial del [Instituto Nacional de Salud](https://www.ins.gov.co/Paginas/Inicio.aspx), tomando solamente los primeros 500 mil primeros datos para reducir un poco el tiempo de carga y el tamaño del archivo.
-3. Contenedor con [Python]() y librerías para el uso de Dash, generando así las gráficas pertinentes.
+1. Contenedor con Jupyter-Notebook para mostrar las 3 visualizaciones, así mismo se hace conexión con la base de datos en el contenedor con la imagen de Postgres.
+2. Contenedor con Postgres, así como scripts que crean la base de datos de covid-19 de Colombia, dividida en 5 partes por restricciones de github (scriptCovid1-5.sql). Estos datos fueron obtenidos de la página oficial del [Instituto Nacional de Salud](https://www.ins.gov.co/Paginas/Inicio.aspx), tomando solamente los primeros 500 mil primeros datos para reducir un poco el tiempo de carga y el tamaño del archivo.
+3. Contenedor con Python y librerías para el uso de Dash, generando así las gráficas pertinentes.
+
+El directorio _datos_ es un volumen de tipo bind, el cual es compartido por los tres contenedores, en el cual se encuentran dos subdirectorios. _NotebooksJupyter_, donde se encuentra el notebook con las visualizaciones, y _src\_Dash_ donde se encuentra el script de Python para las visualizaciones en Dash.
 
 **Links Importantes**
 [Dataset de Covid en colombia](https://www.datos.gov.co/Salud-y-Protecci-n-Social/Casos-positivos-de-COVID-19-en-Colombia/gt2j-8ykr/data)
