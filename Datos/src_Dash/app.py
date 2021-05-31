@@ -83,10 +83,7 @@ cursor.execute(q)
 cant = cursor.fetchall()[0][0]
 tipos_contagiados.append([cant, 'Relacionado'])
 
-print(tipos_contagiados)
-
 df = pd.DataFrame(tipos_contagiados, columns=['Cantidad', 'Tipo de contagio'])
-print(df)
 fig = px.pie(df, values='Cantidad', names='Tipo de contagio', title="Distribución de los tipos de contagio en Colombia")
 
 cursor.close()
